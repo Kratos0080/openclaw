@@ -361,7 +361,7 @@ export function createSessionMcpRuntime(params: {
           arguments: isMcpConfigRecord(input) ? input : {},
         },
         {
-          timeoutMs: 7200000,
+          maxTotalTimeout: 7200000,
           resetTimeoutOnProgress: true,
         },
       )) as CallToolResult;
