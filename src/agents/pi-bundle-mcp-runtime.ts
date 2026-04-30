@@ -355,7 +355,6 @@ export function createSessionMcpRuntime(params: {
       if (!session) {
         throw new Error(`bundle-mcp server "${serverName}" is not connected`);
       }
-      // @ts-ignore - SDK accepts RequestOptions as 2nd arg at runtime; types lag behind
       return (await session.client.callTool(
         {
           name: toolName,
@@ -364,7 +363,7 @@ export function createSessionMcpRuntime(params: {
         {
           maxTotalTimeout: 7200000,
           resetTimeoutOnProgress: true,
-        },
+        } as any,
       )) as CallToolResult;
     },
     async dispose() {
