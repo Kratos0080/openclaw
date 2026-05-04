@@ -360,10 +360,11 @@ export function createSessionMcpRuntime(params: {
           name: toolName,
           arguments: isMcpConfigRecord(input) ? input : {},
         },
+        undefined,
         {
           maxTotalTimeout: 7200000,
           resetTimeoutOnProgress: true,
-        } as any,
+        },
       )) as CallToolResult;
     },
     async dispose() {
